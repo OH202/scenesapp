@@ -1,4 +1,4 @@
-package com.example.owner.scenesbasicapp5.model;
+package com.example.owner.scenesapp.model;
 
 import android.app.Activity;
 

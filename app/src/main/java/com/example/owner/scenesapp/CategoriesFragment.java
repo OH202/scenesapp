@@ -1,4 +1,4 @@
-package com.example.owner.scenesbasicapp5;
+package com.example.owner.scenesapp;
 
 /**
  * Created by Owner on 8/5/2014.
@@ -8,22 +8,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.AdapterView;
 import android.widget.Toast;
-import android.util.Log;
 
 import com.etsy.android.grid.StaggeredGridView;
-
-import com.example.owner.scenesbasicapp5.adapter.SampleAdapter;
-import com.example.owner.scenesbasicapp5.model.SampleData;
-
-import android.widget.AbsListView;
-import android.widget.AdapterView;
+import com.example.owner.scenesapp.adapter.SampleAdapter;
 
 import java.util.ArrayList;
 
 
-public class CategoriesFragment extends Fragment implements AbsListView.OnScrollListener, AbsListView.OnItemClickListener{
+public class CategoriesFragment extends Fragment{
 
     private static final String TAG = "ScenesApp";
     public static final String SAVED_DATA_KEY = "SAVED_DATA";
@@ -39,7 +33,7 @@ public class CategoriesFragment extends Fragment implements AbsListView.OnScroll
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(com.example.owner.scenesapp.R.layout.fragment_home, container, false);
 
         return rootView;
     }
@@ -48,19 +42,12 @@ public class CategoriesFragment extends Fragment implements AbsListView.OnScroll
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mGridView = (StaggeredGridView) getView().findViewById(R.id.grid_view);
+        mGridView = (StaggeredGridView) getView().findViewById(com.example.owner.scenesapp.R.id.grid_view);
 
         if (savedInstanceState == null) {
             final LayoutInflater layoutInflater = getActivity().getLayoutInflater();
 
-            View footer = layoutInflater.inflate(R.layout.list_item_footer, null);
 
-            TextView txtFooterTitle = (TextView) footer.findViewById(R.id.txt_title);
-
-            txtFooterTitle.setText("THE FOOTER!");
-
-
-            mGridView.addFooterView(footer);
         }
 
         if (mAdapter == null) {
@@ -80,8 +67,7 @@ public class CategoriesFragment extends Fragment implements AbsListView.OnScroll
         }
 
         mGridView.setAdapter(mAdapter);
-        mGridView.setOnScrollListener(this);
-        mGridView.setOnItemClickListener(this);
+
     }
 
     @Override
@@ -90,40 +76,7 @@ public class CategoriesFragment extends Fragment implements AbsListView.OnScroll
         outState.putStringArrayList(SAVED_DATA_KEY, mData);
     }
 
-    @Override
-    public void onScrollStateChanged(final AbsListView view, final int scrollState) {
-        Log.d(TAG, "onScrollStateChanged:" + scrollState);
-    }
 
-    @Override
-    public void onScroll(final AbsListView view, final int firstVisibleItem, final int visibleItemCount, final int totalItemCount) {
-        Log.d(TAG, "onScroll firstVisibleItem:" + firstVisibleItem +
-                " visibleItemCount:" + visibleItemCount +
-                " totalItemCount:" + totalItemCount);
-        // our handling
-        if (!mHasRequestedMore) {
-            int lastInScreen = firstVisibleItem + visibleItemCount;
-            if (lastInScreen >= totalItemCount) {
-                Log.d(TAG, "onScroll lastInScreen - so load more");
-                mHasRequestedMore = true;
-                onLoadMoreItems();
-            }
-        }
-    }
-
-    private void onLoadMoreItems() {
-        final ArrayList<String> sampleData = generateData();
-        for (String data : sampleData) {
-            mAdapter.add(data);
-        }
-        // stash all the data in our backing store
-        mData.addAll(sampleData);
-        // notify the adapter that we can update now
-        mAdapter.notifyDataSetChanged();
-        mHasRequestedMore = false;
-    }
-
-    @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         Toast.makeText(getActivity(), "Item Clicked: " + position, Toast.LENGTH_SHORT).show();
     }
@@ -141,4 +94,6 @@ public class CategoriesFragment extends Fragment implements AbsListView.OnScroll
 
         return listData;
     }
+
+
 }

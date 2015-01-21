@@ -1,29 +1,26 @@
-package com.example.owner.scenesbasicapp5;
+package com.example.owner.scenesapp;
 
 /**
  * Created by Owner on 8/5/2014.
  */
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import android.util.Log;
-
-import com.etsy.android.grid.StaggeredGridView;
-
-import com.example.owner.scenesbasicapp5.adapter.SampleAdapter;
-import com.example.owner.scenesbasicapp5.model.SampleData;
-
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.etsy.android.grid.StaggeredGridView;
+import com.example.owner.scenesapp.adapter.SampleAdapter;
 
 import java.util.ArrayList;
 
 
-public class MyScenesFragment extends Fragment implements AbsListView.OnScrollListener, AbsListView.OnItemClickListener{
+public class SettingsFragment extends Fragment implements AbsListView.OnScrollListener, AbsListView.OnItemClickListener{
 
     private static final String TAG = "ScenesApp";
     public static final String SAVED_DATA_KEY = "SAVED_DATA";
@@ -33,13 +30,12 @@ public class MyScenesFragment extends Fragment implements AbsListView.OnScrollLi
     private SampleAdapter mAdapter;
     private ArrayList<String> mData;
 
-    public MyScenesFragment(){}
+    public SettingsFragment(){}
 
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(com.example.owner.scenesapp.R.layout.fragment_home, container, false);
 
         return rootView;
     }
@@ -48,14 +44,14 @@ public class MyScenesFragment extends Fragment implements AbsListView.OnScrollLi
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mGridView = (StaggeredGridView) getView().findViewById(R.id.grid_view);
+        mGridView = (StaggeredGridView) getView().findViewById(com.example.owner.scenesapp.R.id.grid_view);
 
         if (savedInstanceState == null) {
             final LayoutInflater layoutInflater = getActivity().getLayoutInflater();
 
-            View footer = layoutInflater.inflate(R.layout.list_item_footer, null);
+            View footer = layoutInflater.inflate(com.example.owner.scenesapp.R.layout.list_item_footer, null);
 
-            TextView txtFooterTitle = (TextView) footer.findViewById(R.id.txt_title);
+            TextView txtFooterTitle = (TextView) footer.findViewById(com.example.owner.scenesapp.R.id.txt_title);
 
             txtFooterTitle.setText("THE FOOTER!");
 
@@ -125,7 +121,7 @@ public class MyScenesFragment extends Fragment implements AbsListView.OnScrollLi
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-
+        Toast.makeText(getActivity(), "Item Clicked: " + position, Toast.LENGTH_SHORT).show();
     }
 
     private ArrayList<String> generateData() {

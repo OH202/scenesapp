@@ -9,8 +9,9 @@
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:item_margin="8dp"
+        app:item_margin="2dp"
         app:column_count="2"
+        android:stretchMode = "columnWidth"/>
     />
     
 

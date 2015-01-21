@@ -4,8 +4,8 @@ android {
     compileSdkVersion 20
     buildToolsVersion '20.0.0'
     defaultConfig {
-        applicationId 'com.example.owner.myapplication'
-        minSdkVersion 15
+        applicationId 'com.example.owner.scenesapp'
+        minSdkVersion 14
         targetSdkVersion 20
         versionCode 1
         versionName '1.0'

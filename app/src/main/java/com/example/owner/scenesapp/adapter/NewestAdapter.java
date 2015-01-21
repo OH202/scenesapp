@@ -1,9 +1,4 @@
-package com.example.owner.scenesbasicapp5.adapter;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Random;
+package com.example.owner.scenesapp.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -14,9 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.etsy.android.grid.util.DynamicHeightImageView;
-import com.example.owner.scenesbasicapp5.R;
-import com.example.owner.scenesbasicapp5.model.SampleData;
+import com.example.owner.scenesapp.R;
+import com.example.owner.scenesapp.model.SampleData;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Random;
 
 
 
@@ -24,15 +24,15 @@ import com.squareup.picasso.Picasso;
  * ADAPTER
  */
 
-public class TrendingAdapter extends ArrayAdapter<String> {
+public class NewestAdapter extends ArrayAdapter<String> {
 
-    private static final String TAG = "TrendingAdapter";
+    private static final String TAG = "NewestAdapter";
 
     private final LayoutInflater mLayoutInflater;
     private final Random mRandom;
     private static final SparseArray<Double> sPositionHeightRatios = new SparseArray<Double>();
 
-    public TrendingAdapter(Context context, int textViewResourceId,
+    public NewestAdapter(Context context, int textViewResourceId,
                          ArrayList<String> objects) {
         super(context, textViewResourceId, objects);
         this.mLayoutInflater = LayoutInflater.from(context);
@@ -63,7 +63,6 @@ public class TrendingAdapter extends ArrayAdapter<String> {
 
         sortImages(SampleData.URLS, new ImageComparator());
         Picasso.with(getContext()).load(SampleData.URLS[new Random().nextInt(SampleData.URLS.length)]).into(vh.imgView);
-
         return convertView;
     }
 

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="sample_image" type="id">@drawable/orange_cat</item>
+    <item name="sample_image" type="drawable">@drawable/orange_cat</item>
 </resources>

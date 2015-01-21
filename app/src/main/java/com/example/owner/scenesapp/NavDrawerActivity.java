@@ -1,11 +1,4 @@
-package com.example.owner.scenesbasicapp5;
-
-import com.example.owner.scenesbasicapp5.adapter.NavDrawerListAdapter;
-import com.example.owner.scenesbasicapp5.model.NavDrawerItem;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
-import java.util.ArrayList;
+package com.example.owner.scenesapp;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -21,6 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.owner.scenesapp.adapter.NavDrawerListAdapter;
+import com.example.owner.scenesapp.model.NavDrawerItem;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
+import java.util.ArrayList;
 
 public class NavDrawerActivity extends Activity {
     private DrawerLayout mDrawerLayout;
@@ -48,19 +48,19 @@ public class NavDrawerActivity extends Activity {
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
         ImageLoader.getInstance().init(config);
 
-        setContentView(R.layout.activity_main);
+        setContentView(com.example.owner.scenesapp.R.layout.activity_main);
 
         mTitle = mDrawerTitle = getTitle();
 
         // load slide menu items
-        navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
+        navMenuTitles = getResources().getStringArray(com.example.owner.scenesapp.R.array.nav_drawer_items);
 
         // nav drawer icons from resources
         navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);
+                .obtainTypedArray(com.example.owner.scenesapp.R.array.nav_drawer_icons);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+        mDrawerLayout = (DrawerLayout) findViewById(com.example.owner.scenesapp.R.id.drawer_layout);
+        mDrawerList = (ListView) findViewById(com.example.owner.scenesapp.R.id.list_slidermenu);
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
 
@@ -93,9 +93,9 @@ public class NavDrawerActivity extends Activity {
         getActionBar().setHomeButtonEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.drawable.ic_drawer, //nav menu toggle icon
-                R.string.app_name, // nav drawer open - description for accessibility
-                R.string.app_name // nav drawer close - description for accessibility
+                com.example.owner.scenesapp.R.drawable.ic_drawer, //nav menu toggle icon
+                com.example.owner.scenesapp.R.string.app_name, // nav drawer open - description for accessibility
+                com.example.owner.scenesapp.R.string.app_name // nav drawer close - description for accessibility
         ) {
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
@@ -132,7 +132,7 @@ public class NavDrawerActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(com.example.owner.scenesapp.R.menu.main, menu);
         return true;
     }
 
@@ -144,7 +144,7 @@ public class NavDrawerActivity extends Activity {
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
-            case R.id.action_settings:
+            case com.example.owner.scenesapp.R.id.action_settings:
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -158,7 +158,7 @@ public class NavDrawerActivity extends Activity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         // if nav drawer is opened, hide the action items
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+        menu.findItem(com.example.owner.scenesapp.R.id.action_settings).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -195,7 +195,7 @@ public class NavDrawerActivity extends Activity {
         if (fragment != null) {
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
+                    .replace(com.example.owner.scenesapp.R.id.frame_container, fragment).commit();
 
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);

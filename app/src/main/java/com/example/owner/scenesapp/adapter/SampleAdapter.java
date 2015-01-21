@@ -1,9 +1,4 @@
-package com.example.owner.scenesbasicapp5.adapter;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Random;
+package com.example.owner.scenesapp.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -14,9 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.etsy.android.grid.util.DynamicHeightImageView;
-import com.example.owner.scenesbasicapp5.R;
-import com.example.owner.scenesbasicapp5.model.SampleData;
+import com.example.owner.scenesapp.R;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 
 
@@ -24,15 +21,20 @@ import com.squareup.picasso.Picasso;
  * ADAPTER
  */
 
-public class NewestAdapter extends ArrayAdapter<String> {
+public class SampleAdapter extends ArrayAdapter<String> {
 
-    private static final String TAG = "NewestAdapter";
+    private static final String TAG = "SampleAdapter";
 
     private final LayoutInflater mLayoutInflater;
     private final Random mRandom;
     private static final SparseArray<Double> sPositionHeightRatios = new SparseArray<Double>();
 
-    public NewestAdapter(Context context, int textViewResourceId,
+
+    private Integer[] categoryImages = {
+            R.drawable.orange_cat, R.drawable.sample_image,R.drawable.testimage,R.drawable.scenescategory1,R.drawable.scenescategory2
+    };
+
+    public SampleAdapter(Context context, int textViewResourceId,
                          ArrayList<String> objects) {
         super(context, textViewResourceId, objects);
         this.mLayoutInflater = LayoutInflater.from(context);
@@ -61,8 +63,22 @@ public class NewestAdapter extends ArrayAdapter<String> {
 
         vh.imgView.setHeightRatio(positionHeight);
 
-        sortImages(SampleData.URLS, new ImageComparator());
-        Picasso.with(getContext()).load(SampleData.URLS[new Random().nextInt(SampleData.URLS.length)]).into(vh.imgView);
+        Picasso.with(getContext()).setLoggingEnabled(true);
+        Picasso.with(getContext()).setDebugging(true);
+
+
+        Picasso.with(getContext()).load(categoryImages[new Random().nextInt(categoryImages.length)]).into(vh.imgView);
+
+        /*		// Picasso image loader library starts here
+		Picasso.with(getContext())
+				.load(CATEGORY_LOGO_URL
+						+ resultp.get(CategoryActivity.TAG_CATEGORIES_LOGO)) // Photo URL
+				.placeholder(R.drawable.placeholder) // This image will be displayed while photo URL is loading
+				.error(R.drawable.error) // if error shows up during downloading
+				.fit().centerCrop() // settings
+				.into(category_logo); // we put it into our layout component (imageview)
+
+		return view;*/
         return convertView;
     }
 
@@ -87,39 +103,6 @@ public class NewestAdapter extends ArrayAdapter<String> {
     private double getRandomHeightRatio() {
         return (mRandom.nextDouble() / 2.0) + 1.0; // height will be 1.0 - 1.5
         // the width
-    }
-
-    //SORTING
-
-    public class ImageComparator implements Comparator<String> {
-        public int compare(String firstImage, String otherImage) {
-
-
-            float image1 = getRanking(firstImage);
-            float image2 = getRanking(otherImage);
-
-            if(image1 > image2) return 1;
-
-            else if(image1 < image2) return -1;
-
-            return 0;
-
-        }
-
-    }
-
-    public int getRanking(String image){
-
-        return 1;
-
-    }
-
-    public void sortImages(String[] Source, ImageComparator Filter) {
-
-        //Format: sort(T[] a, int fromIndex, int toIndex, Comparator<? super T> c)
-
-        Arrays.sort(Source, Filter);
-
     }
 
 
