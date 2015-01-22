@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme" parent="Theme.Sherlock.Light.DarkActionBar">
-        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
-        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+    <style name="AppTheme" parent="Theme.AppCompat">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
-    <style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
-        <item name="background">@color/actionbar_background</item>
-        <item name="android:background">@color/actionbar_background</item>
+    <style name="Base.Widget.AppCompat.Light.ActionBar.Solid" parent="Widget.AppCompat.ActionBar">
 
+        <item name="background">@color/list_background_pressed</item>
+        <item name="backgroundStacked">@color/list_background_pressed</item>
         <item name="backgroundSplit">@color/list_background_pressed</item>
-        <item name="android:backgroundSplit">@color/list_background_pressed</item>
+        <item name="android:height">@dimen/bar_height</item>
+
     </style>
+
+    <dimen name="bar_height">80px</dimen>
 </resources>

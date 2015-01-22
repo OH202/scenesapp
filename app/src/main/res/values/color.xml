@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="list_item_title">#02bbd2</color>
+    <color name="list_item_title">#303030</color>
     <color name="list_background">#fbfbfb</color>
-    <color name="actionbar_background">#08ae9e</color>
-    <color name="list_item_pressed">#1A000000</color>
+    <color name="colorPrimary">#08ae9e</color>
+    <color name="colorPrimary_dark">#0D9083</color>
+    <color name="colorAccent">#01C5B2</color>
+    <color name="list_item_pressed">#02bbd2</color>
 
-    <color name="list_background_pressed">#E89A0C</color>
-
+    <color name="list_background_pressed">#fbfbfb</color>
+    <color name="list_divider">#1A000000</color>
     <color name="counter_text_bg">#FFC20D</color>
     <color name="counter_text_color">#E8600C</color>
+
+    <!--#303030-->
 </resources>

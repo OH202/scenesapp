@@ -3,7 +3,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- shapes defined for Android 2.3 drawable issues -->
-    <item android:state_pressed="true" >
+    <item android:state_pressed="true">
         <shape android:shape="rectangle">
              <solid android:color="@color/list_item_pressed" />
         </shape>

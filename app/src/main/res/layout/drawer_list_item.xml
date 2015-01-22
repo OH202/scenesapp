@@ -11,8 +11,10 @@
         android:layout_marginLeft="8dp"
         android:minHeight="?android:attr/listPreferredItemHeightSmall"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:textColor="@color/list_item_title"
+        android:textColor="@drawable/list_text_selector"
         android:gravity="center_vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:paddingRight="40dp"/>
 
     <TextView android:id="@+id/counter"
@@ -22,6 +24,6 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="8dp"
-        android:textColor="@color/counter_text_color"/>
+        />
 
 </RelativeLayout>

@@ -31,7 +31,7 @@ public class SampleAdapter extends ArrayAdapter<String> {
 
 
     private Integer[] categoryImages = {
-            R.drawable.orange_cat, R.drawable.sample_image,R.drawable.testimage,R.drawable.scenescategory1,R.drawable.scenescategory2
+            R.drawable.orange_cat,R.drawable.testimage,R.drawable.scenescategory1,R.drawable.scenescategory2
     };
 
     public SampleAdapter(Context context, int textViewResourceId,

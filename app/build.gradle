@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 20
-    buildToolsVersion '20.0.0'
+    compileSdkVersion 21
+    buildToolsVersion '21.0.2'
     defaultConfig {
-        applicationId 'com.example.owner.scenesapp'
-        minSdkVersion 14
-        targetSdkVersion 20
+        applicationId 'com.example.owner.myapplication'
+        minSdkVersion 15
+        targetSdkVersion 21
         versionCode 1
         versionName '1.0'
     }
@@ -28,10 +28,15 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // see changelog
     compile 'com.etsy.android.grid:library:1.0.5'
-    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'com.android.support:support-v4:20.+'
+
+    compile 'com.android.support:support-v4:21.0.0-rc1'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.2'
     compile 'com.squareup.picasso:picasso:2.3.4'
+    compile "com.android.support:appcompat-v7:21.0.+"
+    compile "com.android.support:cardview-v7:+"
+    compile "com.android.support:recyclerview-v7:+"
+    compile "com.android.support:palette-v7:+"
+
 }
 
 
